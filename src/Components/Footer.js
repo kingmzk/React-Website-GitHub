@@ -22,14 +22,7 @@ function Footer() {
       </section> 
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
-        <div className='footer-link-items'>
-            <h2>ABOUT US</h2>
-            <Link to="/sign-up">HOW IT WORKS</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Investors</Link>
-            <Link to='/'>Terms of Service</Link>
-          </div>
+       
           <div class='footer-link-items'>
             <h2>Contact Us</h2>
             <Link to='/'>Contact</Link>
@@ -46,13 +39,7 @@ function Footer() {
             <Link to='/'>Agency</Link>
             <Link to='/'>Influencer</Link>
           </div>
-          <div class='footer-link-items'>
-            <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
-          </div>
+         
         </div>
       </div>
       <section class='social-media'>
