@@ -1,11 +1,30 @@
-import React from "react";
+
+import React, { useState } from "react";
 import './ContactForm.css';
+import { authenticateSignup } from "./serviceAPI/api.js";
 
 
+const signupInitialValues = {
+  firstname:'',
+  lastname:'',
+  email:'',
+  phonenumber:'',
+  comment:''
+}
 
 
 export default function ContactForm()
 {
+  const [signup, setSignup] = useState(signupInitialValues)
+  const onInputChange = (e) =>{
+   setSignup({ ...signup,[e.target.name]: e.target.value});
+
+  }
+
+  const signupUser = async () => {
+    console.log("I AM HERE")
+  let response = await authenticateSignup(signup);
+  }
     return (
         <>
     
@@ -25,33 +44,33 @@ export default function ContactForm()
         </div>
     </div>
 </div>
-        <form action="">
+        <form>
    
        
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="text" class="form-control mt-2" placeholder="FIRST NAME" required/>
+                <input type="text" className="form-control mt-2" placeholder="FIRST NAME" onChange={(e) =>onInputChange(e)} name='firstname'  required/>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="text" class="form-control mt-2" placeholder="LAST NAME" required/>
+                <input type="text" className="form-control mt-2" placeholder="LAST NAME" onChange={(e) =>onInputChange(e)} name='lastname' required/>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="email" class="form-control mt-2" placeholder="Email" required/>
+                <input type="email" className="form-control mt-2" placeholder="Email" onChange={(e) =>onInputChange(e)} name='email' required/>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="tel" class="form-control mt-2" placeholder="PHONE NUMBER" required/>
+                <input type="tel" className="form-control mt-2" placeholder="PHONE NUMBER" onChange={(e) =>onInputChange(e)} name='phonenumber' required/>
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="COMMENT HERE" rows="3" required></textarea>
+                <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="COMMENT HERE" rows="3" name='comment' onChange={(e) =>onInputChange(e)}  required></textarea>
               </div>
             </div>
             <div class="col-12">
@@ -62,7 +81,7 @@ export default function ContactForm()
             </div>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary btn-lg active" type="submit">SUBMIT</button>
+              <button className="btn btn-primary btn-lg active" onClick={() => signupUser()}>SUBMIT</button>
             </div>
           </div>
         </form>
